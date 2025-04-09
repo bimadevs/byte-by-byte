@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { formatDate } from '@/lib/utils';
-import { getPostsByType, type Course, type Post } from '@/lib/mdx';
+import { getPostsByType, getAllCourseCategories, type Course, type Post } from '@/lib/mdx';
 import MainLayout from '@/components/layout/main-layout';
 import Container from '@/components/layout/container';
 
@@ -31,19 +31,39 @@ const courseInfo = {
     color: 'from-yellow-400 to-yellow-600',
     emoji: '⚡',
   },
+  php: {
+    title: 'Belajar PHP',
+    description: 'PHP adalah bahasa pemrograman server-side yang populer untuk pengembangan web. Pelajari dasar-dasar PHP untuk membuat aplikasi web dinamis.',
+    color: 'from-indigo-500 to-purple-500',
+    emoji: '🐘',
+  },
+};
+
+// Fungsi untuk mendapatkan informasi kursus berdasarkan kategori
+const getCourseInfo = (course: string) => {
+  // @ts-ignore - kita akan menangani kursus yang tidak ada dalam courseInfo
+  const info = courseInfo[course];
+  
+  if (!info) {
+    return {
+      title: `Belajar ${course.toUpperCase()}`,
+      description: `Pelajari dasar-dasar ${course.toUpperCase()} dalam kursus ini.`,
+      color: 'from-gray-500 to-gray-700',
+      emoji: '📚',
+    };
+  }
+  
+  return info;
 };
 
 export function generateStaticParams() {
-  return [
-    { course: 'html' },
-    { course: 'css' },
-    { course: 'javascript' },
-  ];
+  const courseCategories = getAllCourseCategories();
+  return courseCategories.map(course => ({ course }));
 }
 
 export default function CoursePage({ params }: CoursePageProps) {
   const { course } = params;
-  const info = courseInfo[course];
+  const info = getCourseInfo(course);
   
   // Menggunakan data sebenarnya dari file MDX
   const posts = getPostsByType(course);

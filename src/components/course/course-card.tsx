@@ -11,6 +11,8 @@ interface CourseCardProps {
   difficulty?: 'beginner' | 'intermediate' | 'advanced';
   image?: string;
   className?: string;
+  customGradient?: string;
+  emoji?: string;
 }
 
 const difficultyClasses = {
@@ -32,8 +34,10 @@ const CourseCard: React.FC<CourseCardProps> = ({
   difficulty = 'beginner',
   image,
   className = '',
+  customGradient,
+  emoji,
 }) => {
-  const gradient = getRandomGradient();
+  const gradient = customGradient || getRandomGradient();
 
   return (
     <Link 
@@ -54,7 +58,13 @@ const CourseCard: React.FC<CourseCardProps> = ({
             />
           </div>
         ) : (
-          <div className={cn("h-48 w-full bg-gradient-to-r", gradient)} />
+          <div className={cn("h-48 w-full bg-gradient-to-r", gradient)}>
+            {emoji && (
+              <div className="absolute inset-0 flex items-center justify-center text-5xl">
+                {emoji}
+              </div>
+            )}
+          </div>
         )}
       </div>
       

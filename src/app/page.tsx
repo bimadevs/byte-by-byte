@@ -78,7 +78,7 @@ export default function Home() {
                 Pelajari HTML, CSS, dan JavaScript dengan kurikulum yang terstruktur dan mudah dipahami untuk para pemula.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="px-8 py-3 text-base" as={Link} href="/courses/html">
+                <Button size="lg" className="px-8 py-3 text-base" as={Link} href="/courses">
                   Mulai Belajar
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -186,7 +186,7 @@ export default function Home() {
               Lihat Semua Kursus
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-          </div>
+        </div>
         </Container>
       </section>
 
@@ -204,12 +204,12 @@ export default function Home() {
               size="lg" 
               className="px-10 py-3 text-base bg-white text-blue-700 hover:bg-blue-50"
               as={Link} 
-              href="/courses/html"
+              href="/courses"
             >
               Mulai Belajar Sekarang
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-          </div>
+    </div>
         </Container>
       </section>
     </MainLayout>

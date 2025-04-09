@@ -31,6 +31,20 @@ export interface Post {
 // Path ke direktori content
 const contentDirectory = path.join(process.cwd(), 'src/content');
 
+// Mendapatkan semua kategori kursus yang tersedia
+export const getAllCourseCategories = (): Course[] => {
+  try {
+    const directories = fs.readdirSync(contentDirectory, { withFileTypes: true })
+      .filter(dirent => dirent.isDirectory())
+      .map(dirent => dirent.name as Course);
+    
+    return directories;
+  } catch (error) {
+    console.error('Error reading course directories:', error);
+    return [];
+  }
+};
+
 // Mendapatkan semua file dari jenis kursus tertentu (html, css, javascript)
 export const getPostsByType = (course: Course): Post[] => {
   const courseDirectory = path.join(contentDirectory, course);
@@ -94,6 +108,6 @@ export const getPostBySlug = async (course: Course, slug: string) => {
 
 // Mendapatkan semua post dari semua jenis kursus
 export const getAllPosts = (): Post[] => {
-  const courses: Course[] = ['html', 'css', 'javascript'];
+  const courses = getAllCourseCategories();
   return courses.flatMap(course => getPostsByType(course));
 }; 

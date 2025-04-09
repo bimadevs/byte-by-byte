@@ -1,0 +1,299 @@
+---
+title: Pengenalan JavaScript
+description: Pelajari dasar-dasar JavaScript dan cara membuat website yang interaktif.
+date: 2023-06-01
+tags: [javascript, dasar, pemula]
+difficulty: beginner
+order: 1
+---
+
+# Pengenalan JavaScript
+
+JavaScript adalah bahasa pemrograman yang membuat halaman web interaktif. Dari memperbarui konten secara dinamis, mengendalikan multimedia, menganimasikan gambar, hingga hampir semua hal lainnya - JavaScript dapat melakukannya.
+
+## Apa itu JavaScript?
+
+JavaScript adalah bahasa pemrograman tingkat tinggi, ditafsirkan (interpreted), dan berbasis objek dengan fungsi kelas satu. JavaScript berjalan pada sisi klien web, yang berarti kode dijalankan langsung di browser pengguna.
+
+<Callout type="info">
+  JavaScript adalah salah satu dari tiga teknologi inti web bersama dengan HTML dan CSS. HTML menentukan struktur, CSS menentukan tampilan, dan JavaScript menambahkan interaktivitas.
+</Callout>
+
+## Mengapa Belajar JavaScript?
+
+JavaScript telah menjadi salah satu bahasa pemrograman paling populer di dunia. Berikut beberapa alasan mengapa Anda harus mempelajarinya:
+
+1. **Ubikuitas**: JavaScript didukung oleh semua browser modern dan tersedia di sebagian besar perangkat.
+2. **Lingkup luas**: Tidak hanya untuk web, JavaScript juga digunakan untuk pengembangan aplikasi mobile, desktop, dan server.
+3. **Komunitas besar**: Dukungan dan sumber daya yang luas tersedia.
+4. **Peluang karir**: Permintaan tinggi untuk pengembang JavaScript.
+
+## Cara Menambahkan JavaScript ke HTML
+
+Ada tiga cara untuk menambahkan JavaScript ke dokumen HTML:
+
+### 1. Inline JavaScript
+
+JavaScript yang ditulis langsung di dalam atribut HTML:
+
+```html
+<button onclick="alert('Hello, World!')">Klik Saya</button>
+```
+
+### 2. Internal JavaScript
+
+JavaScript yang ditulis di dalam tag `<script>` di dokumen HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Internal</title>
+  </head>
+  <body>
+    <h1>JavaScript Internal Example</h1>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        alert('Halaman telah dimuat!');
+      });
+    </script>
+  </body>
+</html>
+```
+
+### 3. External JavaScript
+
+JavaScript yang ditulis di file terpisah dengan ekstensi `.js` dan direferensikan di HTML:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript External</title>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <h1>JavaScript External Example</h1>
+  </body>
+</html>
+```
+
+Dan file JavaScript terpisah (`script.js`):
+
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+  alert('Halaman telah dimuat!');
+});
+```
+
+<Callout type="success">
+  External JavaScript adalah praktik terbaik karena memisahkan kode JavaScript dari HTML, meningkatkan keterbacaan dan pemeliharaan.
+</Callout>
+
+## Dasar-dasar JavaScript
+
+### Variabel dan Tipe Data
+
+JavaScript memiliki beberapa cara untuk mendeklarasikan variabel:
+
+```javascript
+// var - cara lama, hindari penggunaan jika memungkinkan
+var nama = "John";
+
+// let - untuk variabel yang nilainya bisa berubah
+let usia = 25;
+usia = 26; // nilai dapat diubah
+
+// const - untuk variabel yang nilainya tidak berubah
+const PI = 3.14159;
+// PI = 3.14; // Error! Konstanta tidak dapat diubah nilainya
+```
+
+JavaScript memiliki beberapa tipe data dasar:
+
+```javascript
+// String
+let nama = "John";
+
+// Number
+let usia = 25;
+let beratBadan = 70.5;
+
+// Boolean
+let menikah = false;
+
+// Array
+let buah = ["Apel", "Jeruk", "Mangga"];
+
+// Object
+let orang = {
+  nama: "John",
+  usia: 25,
+  pekerjaan: "Programmer"
+};
+
+// Null
+let tidakAda = null;
+
+// Undefined
+let belumDiisi;
+```
+
+### Operator
+
+JavaScript mendukung berbagai macam operator:
+
+```javascript
+// Aritmatika
+let a = 10;
+let b = 5;
+
+let tambah = a + b; // 15
+let kurang = a - b; // 5
+let kali = a * b;   // 50
+let bagi = a / b;   // 2
+let modulus = a % b; // 0
+
+// Perbandingan
+let sama = a == b;   // false
+let identik = a === b; // false
+let tidakSama = a != b; // true
+let lebihBesar = a > b; // true
+
+// Logika
+let and = (a > 5) && (b < 10); // true
+let or = (a > 15) || (b < 10); // true
+let not = !(a > 15); // true
+```
+
+### Kondisional
+
+JavaScript mendukung pernyataan kondisional seperti `if`, `else if`, dan `else`:
+
+```javascript
+let nilai = 85;
+
+if (nilai >= 90) {
+  console.log("Nilai A");
+} else if (nilai >= 80) {
+  console.log("Nilai B");
+} else if (nilai >= 70) {
+  console.log("Nilai C");
+} else {
+  console.log("Nilai D");
+}
+```
+
+### Loop
+
+JavaScript mendukung berbagai jenis loop:
+
+```javascript
+// for loop
+for (let i = 0; i < 5; i++) {
+  console.log(i); // Output: 0, 1, 2, 3, 4
+}
+
+// while loop
+let i = 0;
+while (i < 5) {
+  console.log(i); // Output: 0, 1, 2, 3, 4
+  i++;
+}
+
+// for...of loop (untuk iterable seperti array)
+let buah = ["Apel", "Jeruk", "Mangga"];
+for (let item of buah) {
+  console.log(item); // Output: Apel, Jeruk, Mangga
+}
+
+// for...in loop (untuk properti objek)
+let orang = { nama: "John", usia: 25, pekerjaan: "Programmer" };
+for (let key in orang) {
+  console.log(key + ": " + orang[key]);
+  // Output: nama: John, usia: 25, pekerjaan: Programmer
+}
+```
+
+### Fungsi
+
+Fungsi adalah blok kode yang dapat dipanggil berulang kali:
+
+```javascript
+// Deklarasi fungsi
+function sapa(nama) {
+  return "Halo, " + nama + "!";
+}
+
+// Memanggil fungsi
+let pesan = sapa("John");
+console.log(pesan); // Output: Halo, John!
+
+// Arrow function (ES6+)
+const tambah = (a, b) => a + b;
+console.log(tambah(5, 3)); // Output: 8
+```
+
+## Manipulasi DOM
+
+Document Object Model (DOM) adalah representasi struktur halaman web. JavaScript dapat mengakses dan memanipulasi DOM:
+
+```javascript
+// Mengakses elemen berdasarkan ID
+const judulElemen = document.getElementById('judul');
+judulElemen.textContent = 'Judul Baru';
+
+// Mengakses elemen berdasarkan tag
+const paragraf = document.getElementsByTagName('p');
+paragraf[0].style.color = 'blue';
+
+// Mengakses elemen berdasarkan class
+const tombol = document.getElementsByClassName('btn');
+tombol[0].addEventListener('click', function() {
+  alert('Tombol diklik!');
+});
+
+// Query selector (modern)
+const container = document.querySelector('.container');
+const items = document.querySelectorAll('.item');
+```
+
+## Event Handling
+
+JavaScript dapat bereaksi terhadap peristiwa yang terjadi di halaman:
+
+```javascript
+// Menambahkan event listener
+const tombol = document.getElementById('tombolSaya');
+tombol.addEventListener('click', function(event) {
+  alert('Tombol diklik!');
+});
+
+// Contoh event lain
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('Halaman telah dimuat sepenuhnya.');
+});
+
+window.addEventListener('resize', function() {
+  console.log('Ukuran jendela berubah.');
+});
+
+// Menggunakan arrow function
+const inputField = document.getElementById('namaInput');
+inputField.addEventListener('input', (e) => {
+  console.log('Nilai input:', e.target.value);
+});
+```
+
+## Langkah Selanjutnya
+
+Setelah Anda memahami dasar-dasar JavaScript, berikut adalah beberapa topik lanjutan yang dapat Anda pelajari:
+
+1. **ES6+ Features**: Pelajari fitur JavaScript modern seperti destructuring, spread operator, template literals, dll.
+2. **Asynchronous JavaScript**: Callback, Promises, dan Async/Await.
+3. **API Fetch**: Belajar cara mengambil data dari server.
+4. **Framework JavaScript**: React, Vue, atau Angular untuk pengembangan UI.
+5. **Node.js**: JavaScript pada sisi server.
+
+Selamat belajar JavaScript! 

@@ -1,36 +1,126 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Byte by Byte - Platform Belajar Coding Online
 
-## Getting Started
+Byte by Byte adalah platform belajar coding online yang fokus pada HTML, CSS, dan JavaScript untuk pemula. Website ini dibangun dengan Next.js, TailwindCSS, dan MDX untuk konten pembelajaran yang mudah dikelola.
 
-First, run the development server:
+![Byte by Byte](public/byte-by-byte-preview.png)
+
+## Fitur
+
+- ✨ Antarmuka modern dan responsif
+- 📱 Tampilan optimal di semua perangkat (desktop, tablet, mobile)
+- 📝 Konten berbasis MDX untuk manajemen konten yang mudah
+- 🔍 Navigasi intuitif dan pengalaman pengguna yang baik
+- 🌙 Mode gelap/terang otomatis (berdasarkan preferensi sistem)
+- 🚀 Performa cepat dengan Next.js
+
+## Teknologi yang Digunakan
+
+- **Next.js** - Framework React untuk aplikasi web
+- **TypeScript** - JavaScript dengan dukungan tipe statis
+- **TailwindCSS** - Framework CSS untuk styling
+- **MDX** - Markdown dengan komponen JSX
+- **Framer Motion** - Library animasi untuk React
+
+## Instalasi
+
+1. Clone repositori:
+
+```bash
+git clone https://github.com/username/byte-by-byte.git
+cd byte-by-byte
+```
+
+2. Instal dependensi:
+
+```bash
+npm install
+```
+
+3. Jalankan development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Buka [http://localhost:3000](http://localhost:3000) di browser untuk melihat hasilnya.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Menambahkan Konten Baru
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Semua konten kursus disimpan di direktori `src/content` dan diorganisir berdasarkan jenis kursus (html, css, javascript). Untuk menambahkan konten baru:
 
-## Learn More
+1. Buat file MDX baru di direktori yang sesuai, misalnya `src/content/html/tags-dasar.mdx`
+2. Tambahkan frontmatter di awal file:
 
-To learn more about Next.js, take a look at the following resources:
+```mdx
+---
+title: "Judul Artikel"
+description: "Deskripsi singkat tentang artikel"
+date: "2023-06-08"
+tags: ["html", "tag"]
+difficulty: "beginner" # beginner, intermediate, advanced
+order: 2 # urutan artikel dalam kursus
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Isi konten di sini...
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Tulis konten dengan format MDX. Anda dapat menggunakan semua fitur Markdown dan komponen kustom seperti `<Callout>`.
 
-## Deploy on Vercel
+## Struktur Proyek
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+byte-by-byte/
+├── public/                 # File statis
+├── src/                    # Kode sumber
+│   ├── app/                # Direktori app route Next.js
+│   │   ├── courses/        # Halaman kursus
+│   │   │   ├── [course]/   # Halaman kategori kursus
+│   │   │   │   └── [slug]/ # Halaman artikel
+│   │   ├── components/         # Komponen React
+│   │   │   ├── course/         # Komponen terkait kursus
+│   │   │   ├── layout/         # Komponen layout
+│   │   │   ├── shared/         # Komponen yang digunakan bersama
+│   │   │   └── ui/             # Komponen UI dasar
+│   │   ├── content/            # Konten MDX
+│   │   │   ├── html/           # Konten kursus HTML
+│   │   │   ├── css/            # Konten kursus CSS
+│   │   │   └── javascript/     # Konten kursus JavaScript
+│   │   └── lib/                # Fungsi dan utilitas
+│   └── tailwind.config.ts      # Konfigurasi Tailwind
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Kostumisasi
+
+### Mengganti Tema
+
+Anda dapat mengganti warna tema dengan mengedit file `tailwind.config.ts`.
+
+### Menambah Jenis Kursus Baru
+
+Untuk menambahkan jenis kursus baru:
+
+1. Tambahkan jenis kursus baru di `src/lib/mdx.ts` dalam tipe `Course`
+2. Buat direktori baru di `src/content/` untuk jenis kursus tersebut
+3. Tambahkan informasi kursus di halaman-halaman yang relevan
+
+## Deployment
+
+Website ini dapat dengan mudah di-deploy ke platform seperti Vercel:
+
+```bash
+npm run build
+```
+
+## Kontribusi
+
+Kontribusi selalu diterima! Jika Anda ingin berkontribusi:
+
+1. Fork repositori
+2. Buat branch baru (`git checkout -b fitur-baru`)
+3. Commit perubahan Anda (`git commit -m 'Menambahkan fitur baru'`)
+4. Push ke branch (`git push origin fitur-baru`)
+5. Buat Pull Request
+
+## Lisensi
+
+MIT

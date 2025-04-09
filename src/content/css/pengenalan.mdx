@@ -1,0 +1,217 @@
+---
+title: Pengenalan CSS
+description: Pelajari dasar-dasar CSS dan cara membuat halaman web yang indah.
+date: 2023-06-01
+tags: [css, dasar, pemula]
+difficulty: beginner
+order: 1
+---
+
+# Pengenalan CSS
+
+CSS (Cascading Style Sheets) adalah bahasa yang digunakan untuk mendeskripsikan tampilan dan format dokumen yang ditulis dalam bahasa markup seperti HTML. CSS digunakan untuk membuat halaman web menjadi lebih menarik secara visual.
+
+## Apa itu CSS?
+
+CSS adalah singkatan dari Cascading Style Sheets. CSS menangani tampilan dan "feel" dari halaman web. Dengan CSS, Anda dapat mengontrol warna teks, font, ukuran teks, spasi antara elemen, bagaimana elemen diposisikan dan ditata, background dan efek, serta banyak lagi.
+
+<Callout type="info">
+  CSS membuat halaman web Anda terlihat bagus! Ini memisahkan konten (HTML) dari presentasi (CSS).
+</Callout>
+
+## Mengapa Menggunakan CSS?
+
+Sebelum CSS, semua styling harus dilakukan langsung di dalam HTML dengan atribut seperti `font`, `color`, `bgcolor`, dll. Ini membuat markup menjadi sangat panjang dan sulit dikelola. CSS memecahkan masalah ini dengan memisahkan konten (HTML) dari presentasi (CSS).
+
+Beberapa keuntungan menggunakan CSS:
+
+1. **Memisahkan konten dari presentasi**: CSS memungkinkan Anda untuk memisahkan konten halaman (HTML) dari desainnya (CSS).
+2. **Konsistensi**: Anda dapat menerapkan gaya yang sama ke banyak elemen, sehingga halaman web Anda memiliki tampilan yang konsisten.
+3. **Efisiensi**: Dengan CSS, Anda dapat mengubah tampilan seluruh situs web hanya dengan mengubah satu file CSS.
+4. **Responsif**: CSS memungkinkan Anda untuk membuat desain yang responsif, beradaptasi dengan ukuran layar yang berbeda.
+
+## Cara Menambahkan CSS
+
+Ada tiga cara untuk menambahkan CSS ke HTML:
+
+### 1. Inline CSS
+
+Inline CSS digunakan untuk menerapkan gaya ke elemen tunggal. Anda menambahkan atribut `style` ke tag HTML:
+
+```html
+<h1 style="color: blue; font-size: 30px;">Ini adalah heading dengan inline CSS</h1>
+```
+
+### 2. Internal CSS
+
+Internal CSS didefinisikan di bagian `<head>` dokumen HTML menggunakan tag `<style>`:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        background-color: lightblue;
+      }
+      
+      h1 {
+        color: navy;
+        margin-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ini adalah heading dengan internal CSS</h1>
+    <p>Ini adalah paragraf.</p>
+  </body>
+</html>
+```
+
+### 3. External CSS
+
+External CSS adalah file terpisah dengan ekstensi `.css` yang direferensikan oleh dokumen HTML menggunakan tag `<link>`:
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1>Ini adalah heading dengan external CSS</h1>
+    <p>Ini adalah paragraf.</p>
+  </body>
+</html>
+```
+
+Dan file CSS terpisah (`styles.css`):
+
+```css
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: navy;
+  margin-left: 20px;
+}
+```
+
+<Callout type="success">
+  External CSS adalah praktik terbaik untuk sebagian besar situs web karena memisahkan konten dari presentasi dan dapat digunakan ulang di banyak halaman.
+</Callout>
+
+## Sintaks CSS
+
+Sintaks CSS terdiri dari pemilih (selector) dan blok deklarasi:
+
+```css
+selector {
+  property: value;
+  property: value;
+}
+```
+
+- **Selector**: Target elemen HTML yang ingin Anda beri style.
+- **Property**: Atribut yang ingin Anda ubah.
+- **Value**: Nilai yang ingin Anda tetapkan untuk property.
+
+### Contoh Selector
+
+#### Element Selector
+
+Memilih elemen berdasarkan nama elemennya:
+
+```css
+p {
+  color: red;
+  text-align: center;
+}
+```
+
+#### ID Selector
+
+Memilih elemen dengan ID tertentu menggunakan `#`:
+
+```css
+#header {
+  background-color: black;
+  color: white;
+  padding: 10px;
+}
+```
+
+#### Class Selector
+
+Memilih elemen dengan class tertentu menggunakan `.`:
+
+```css
+.button {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+```
+
+## Property CSS Dasar
+
+Berikut beberapa property CSS dasar yang perlu Anda ketahui:
+
+### Warna
+
+```css
+p {
+  color: red;              /* Warna teks */
+  background-color: yellow; /* Warna background */
+}
+```
+
+### Font dan Teks
+
+```css
+p {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.5;
+}
+```
+
+### Box Model
+
+Setiap elemen HTML pada halaman dianggap sebagai "kotak":
+
+```css
+div {
+  width: 300px;
+  height: 200px;
+  padding: 10px;        /* Ruang di dalam kotak */
+  border: 2px solid black; /* Garis di sekitar kotak */
+  margin: 20px;         /* Ruang di luar kotak */
+}
+```
+
+### Positioning
+
+```css
+div {
+  position: relative; /* static, relative, absolute, fixed, atau sticky */
+  top: 10px;
+  left: 20px;
+  z-index: 1; /* Urutan tumpukan elemen */
+}
+```
+
+## Langkah Selanjutnya
+
+Sekarang setelah Anda memahami dasar-dasar CSS, berikut adalah apa yang dapat Anda pelajari selanjutnya:
+
+1. **Selectors Lanjutan**: Pelajari selector kombinasi, attribute selectors, dan pseudo-classes.
+2. **Flexbox dan Grid**: Layout modern dengan Flexbox dan CSS Grid.
+3. **Responsive Design**: Membuat situs web yang terlihat bagus di semua ukuran layar dengan Media Queries.
+4. **Animasi**: Menambahkan transisi dan animasi ke elemen Anda.
+
+Selamat belajar CSS! 

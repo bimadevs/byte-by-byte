@@ -296,4 +296,78 @@ Setelah Anda memahami dasar-dasar JavaScript, berikut adalah beberapa topik lanj
 4. **Framework JavaScript**: React, Vue, atau Angular untuk pengembangan UI.
 5. **Node.js**: JavaScript pada sisi server.
 
-Selamat belajar JavaScript! 
+Selamat belajar JavaScript!
+
+## Quiz Pengetahuan JavaScript
+
+<Quiz
+  title="Quiz Pengenalan JavaScript"
+  questions={[
+    {
+      question: "JavaScript adalah bahasa pemrograman yang...",
+      options: [
+        "Hanya berjalan di server",
+        "Berjalan di browser pengguna (sisi klien)",
+        "Merupakan bahasa kompilasi",
+        "Digunakan hanya untuk styling"
+      ],
+      answer: 1,
+      explanation: "JavaScript adalah bahasa pemrograman yang berjalan di sisi klien, artinya kode dieksekusi di browser pengguna, meskipun sekarang juga bisa berjalan di server dengan Node.js."
+    },
+    {
+      question: "Manakah dari berikut yang merupakan cara mendeklarasikan variabel yang tidak dapat diubah nilainya di JavaScript?",
+      options: [
+        "var",
+        "let",
+        "const",
+        "static"
+      ],
+      answer: 2,
+      explanation: "const digunakan untuk mendeklarasikan variabel yang nilai primitifnya tidak dapat diubah setelah diinisialisasi."
+    },
+    {
+      question: "Apa hasil dari kode berikut: console.log(typeof []);",
+      options: [
+        "'array'",
+        "'object'",
+        "'list'",
+        "'undefined'"
+      ],
+      answer: 1,
+      explanation: "Di JavaScript, array adalah tipe objek, sehingga typeof [] mengembalikan 'object', bukan 'array'."
+    },
+    {
+      question: "Cara menampilkan popup alert di JavaScript adalah...",
+      options: [
+        "console.log('Pesan')",
+        "prompt('Pesan')",
+        "alert('Pesan')",
+        "display('Pesan')"
+      ],
+      answer: 2,
+      explanation: "Fungsi alert() digunakan untuk menampilkan kotak dialog peringatan dengan pesan tertentu."
+    },
+    {
+      question: "Manakah dari berikut yang BUKAN cara valid untuk menambahkan JavaScript ke halaman HTML?",
+      options: [
+        "Menggunakan tag <script> di dalam HTML",
+        "Menggunakan atribut onclick pada elemen HTML",
+        "Menghubungkan file JavaScript eksternal dengan <script src='..'>",
+        "Menggunakan tag <javascript>"
+      ],
+      answer: 3,
+      explanation: "Tidak ada tag <javascript> di HTML. JavaScript dapat ditambahkan menggunakan tag <script>, atribut event seperti onclick, atau menghubungkan file eksternal."
+    },
+    {
+      question: "Bagaimana cara mengakses elemen dengan id 'header' menggunakan JavaScript?",
+      options: [
+        "document.querySelector('#header')",
+        "document.getElement('header')",
+        "document.getElementById('header')",
+        "document.header"
+      ],
+      answer: 2,
+      explanation: "document.getElementById('header') adalah cara untuk mengakses elemen yang memiliki atribut id='header'."
+    }
+  ]}
+/> 

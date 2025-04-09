@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import Quiz from './quiz';
 
 const CustomLink = ({ href, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>) => {
   const isInternalLink = href && href.startsWith('/');
@@ -181,4 +182,5 @@ export const MDXComponents = {
   td: TData,
   th: TData,
   Callout,
+  Quiz,
 }; 
